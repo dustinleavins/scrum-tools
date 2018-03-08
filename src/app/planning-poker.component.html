@@ -1,0 +1,14 @@
+<header-component></header-component>
+<h2>Select a deck</h2>
+<select [(ngModel)]='currentDeck'>
+    <option *ngFor="let deck of decks" [ngValue]="deck">{{deck.name}}</option>
+</select>
+
+<div *ngIf="currentDeck">
+  <h2>Pick a number</h2>
+  <p *ngFor='let card of currentDeck.cards'>
+    <a routerLink='/planning-poker/{{card}}'>
+      {{ card }}
+    </a>
+  </p>
+</div>

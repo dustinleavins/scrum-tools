@@ -1,0 +1,12 @@
+<header-component></header-component>
+<div *ngIf="!isRunning">
+    <select [(ngModel)]='timeboxMinutes'>
+        <option *ngFor="let opt of timeboxOptions" [value]="opt.minutes">{{opt.name}}</option>
+    </select>
+    <p><button (click)="startTimer()">Start</button></p>
+</div>
+
+<div *ngIf="isRunning">
+    <p [class.warning]="!(isInTimebox | async)">{{ duration | async | duration }}</p>
+    <p><button (click)="stopTimer()">Stop</button></p>
+</div>

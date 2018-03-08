@@ -1,0 +1,2 @@
+.container { display: flex; justify-content: center; align-items: center; height: 100vh;}
+.number { font-size: 80vmin; padding: 0; margin: 0;}
