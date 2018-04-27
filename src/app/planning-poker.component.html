@@ -1,4 +1,4 @@
-<header-component></header-component>
+<app-header></app-header>
 <h2>Select a deck</h2>
 <select [(ngModel)]='currentDeck'>
     <option *ngFor="let deck of decks" [ngValue]="deck">{{deck.name}}</option>

@@ -3,7 +3,7 @@ import { SettingsService } from './settings.service';
 import { Deck } from './deck.model';
 
 @Component({
-  selector: 'planning-poker-component',
+  selector: 'app-planning-poker',
   templateUrl: './planning-poker.component.html',
   styleUrls: ['./planning-poker.component.css']
 })
@@ -12,7 +12,7 @@ export class PlanningPokerComponent {
         this.currentDeck = this.settings.currentDeck || this.decks[0];
     }
 
-    public get decks() : Deck[] {
+    public get decks(): Deck[] {
         return this.settings.decks;
     }
 

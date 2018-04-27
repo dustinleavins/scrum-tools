@@ -1,4 +1,4 @@
-<header-component></header-component>
+<app-header></app-header>
 <div *ngIf="!isRunning">
     <select [(ngModel)]='timeboxMinutes'>
         <option *ngFor="let opt of timeboxOptions" [value]="opt.minutes">{{opt.name}}</option>

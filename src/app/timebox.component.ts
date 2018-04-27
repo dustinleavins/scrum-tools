@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
+
+export class TimeboxOption {
+    constructor(public name: string, public minutes: number) {}
+}
 
 @Component({
-  selector: 'timebox-component',
+  selector: 'app-timebox-component',
   templateUrl: './timebox.component.html',
   styleUrls: ['./timebox.component.css']
 })
 export class TimeboxComponent {
     private startDate: Date;
-    public timeboxMinutes: number = 15;
+    public timeboxMinutes = 15;
     public timeboxOptions: TimeboxOption[] = [
         new TimeboxOption('Daily Scrum', 15),
         new TimeboxOption('Sprint Planning', 8 * 60),
@@ -17,9 +21,10 @@ export class TimeboxComponent {
     ];
 
     public duration: Observable<number> = Observable.interval(250).map(tick => this.currentDuration);
-    public isInTimebox: Observable<boolean> = Observable.interval(250).map(tick => this.currentDuration < (this.timeboxMinutes * 60 * 1000));
+    public isInTimebox: Observable<boolean> = Observable.interval(250).map(
+        tick => this.currentDuration < (this.timeboxMinutes * 60 * 1000));
 
-    public isRunning: boolean = false;
+    public isRunning = false;
 
     public startTimer(): void {
         this.startDate = new Date();
@@ -41,6 +46,4 @@ export class TimeboxComponent {
     }
 }
 
-export class TimeboxOption {
-    constructor(public name: string, public minutes: number) {}
-}
+
