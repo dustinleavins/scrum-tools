@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, interval } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export class TimeboxOption {
     constructor(public name: string, public minutes: number) {}
@@ -20,9 +21,10 @@ export class TimeboxComponent {
         new TimeboxOption('Sprint Retrospective', 3 * 60)
     ];
 
-    public duration: Observable<number> = Observable.interval(250).map(tick => this.currentDuration);
-    public isInTimebox: Observable<boolean> = Observable.interval(250).map(
-        tick => this.currentDuration < (this.timeboxMinutes * 60 * 1000));
+    public duration: Observable<number> = interval(250).pipe(
+        map(tick => this.currentDuration));
+    public isInTimebox: Observable<boolean> = interval(250).pipe(
+        map(tick => this.currentDuration < (this.timeboxMinutes * 60 * 1000)));
 
     public isRunning = false;
 
