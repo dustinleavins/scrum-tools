@@ -1,5 +1,7 @@
 import { Deck } from './deck.model';
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class SettingsService {
     public currentDeck: Deck;
 
