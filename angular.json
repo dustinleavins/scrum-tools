@@ -125,7 +125,6 @@
       }
     }
   },
-  "defaultProject": "planning-poker",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
@@ -134,5 +133,8 @@
     "@schematics/angular:directive": {
       "prefix": "app"
     }
+  },
+  "cli": {
+    "analytics": "473ab763-6a01-4c02-9664-380a54bf40f6"
   }
 }
