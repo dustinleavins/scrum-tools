@@ -33,7 +33,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' })
+    RouterModule.forRoot(appRoutes, {})
   ],
   providers: [SettingsService],
   bootstrap: [AppComponent]
